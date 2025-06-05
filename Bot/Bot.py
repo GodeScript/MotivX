@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 
+from bot_token import token  # Import the bot token from bot_token.py
 from get_quotes import get_random_quote  # Import the function to get quotes
 
 intents = discord.Intents.default()
@@ -22,4 +23,4 @@ async def motivate(ctx, *, issue: str = None):
         await ctx.send(f"{ctx.author.mention} {quote}")
 
 
-bot.run("MTM3OTA2OTAyNjIxMDI4MzU0MQ.Gkihrz.RaSo7mTb1Bw2lns0muRPlyLnxr9yhEodg3JO_Q")
+bot.run(token)  # Replace with your bot token
