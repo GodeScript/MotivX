@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix='/', intents=intents)
 
 channel_id = 1379178030886420510
 
-@bot.command(name="Motivation")
+@bot.command(name="mt")
 async def motivate(ctx, *, issue: str = None):
     if ctx.author.bot or ctx.channel.id == channel_id:
         if not issue:
