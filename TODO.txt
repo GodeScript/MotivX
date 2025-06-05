@@ -1,0 +1,10 @@
+Bots:
+  - Update more quotes
+
+Web:
+  - Change colors to bot colors
+  - Find out how to implement a PayPal system
+  - Text that fits in
+
+Marketing:
+  - See how to market the Bot

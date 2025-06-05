@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 from bot_token import token  # Import the bot token from bot_token.py
-from get_quotes import get_random_quote  # Import the function to get quotes
+from Get_AiQuotes import generate_quote  # Import the function to get quotes
 
 intents = discord.Intents.default()
 intents.message_content = True  # Enable message content intent
@@ -18,7 +18,7 @@ async def motivate(ctx, *, issue: str = None):
             return
 
         issue = issue.lower()
-        quote = get_random_quote(issue)
+        quote = generate_quote(issue)
 
         await ctx.send(f"{ctx.author.mention} {quote}")
 

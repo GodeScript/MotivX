@@ -24,10 +24,4 @@ def generate_quote(user_input):
     
     # 3. Generiere personalisiertes Zitat
     base_quote = np.random.choice(motivational_quotes[best_category])
-    return f"💡 {base_quote}"
-
-# Testlauf
-if __name__ == "__main__":
-    while True:
-        user_text = input("Beschreibe dein Problem: ")
-        print(generate_quote(user_text))
+    return f"{base_quote}"
