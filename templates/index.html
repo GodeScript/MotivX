@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ bot.name }} - Discord Bot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007fff;
+            --primary-dark: #319eff;
+            --text-light: #f8fafc;
+            --text-dark: #1a1a1a;
+            --bg-light: #f5f5f5;
+            --bg-dark: #121212;
+            --card-light: #ffffff;
+            --card-dark: #1e1e1e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: var(--text-light);
+                background-color: var(--bg-dark);
+            }
+        }
+        
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 3rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .header {
+                background-color: var(--primary-dark);
+            }
+        }
+        
+        .header h1 {
+            font-size: 5rem;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            padding: 0 1rem; /* Added padding to contain inputs */
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            background-color: var(--card-light);
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .hero-image {
+                background-color: var(--card-dark);
+            }
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .btn {
+                background-color: var(--primary-dark);
+            }
+        }
+        
+        .section-title {
+            font-size: 5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+        
+        .feature-card {
+            background-color: var(--card-light);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-image {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 15px;
+            margin: 0 auto;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .feature-card {
+                background-color: var(--card-dark);
+            }
+            .feature-image {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        .support {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+        
+        .support-content {
+            flex: 1;
+        }
+        
+        .support-image {
+            flex: 1;
+            background-color: var(--card-light);
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .support-image {
+                background-color: var(--card-dark);
+            }
+        }
+        
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--card-light);
+            color: var(--primary-color);
+            border-radius: 17px;
+            text-decoration: none;
+            border: 1px solid currentColor;
+            transition: all 0.3s;
+        }
+        
+        .social-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .social-btn {
+                background-color: var(--card-dark);
+                color: var(--primary-dark);
+                border-color: var(--primary-dark);
+            }
+            
+            .social-btn:hover {
+                background-color: var(--primary-dark);
+                color: white;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .hero, .support {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>{{ bot.name }}</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 style="font-size: 3rem;">Your Motivation Discord Bot</h1>
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;">{{ bot.description }}</p>
+                <p>With {{ bot.name }}, your server gets daily motivation doses, goal tracking, and a reward system for your team.</p>
+                <p>Perfect for study groups, work teams, or any community that wants to be more productive!</p>
+                
+                <a href="/get_bot" class="btn">Buy now for {{ bot.price }}</a>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/400x400" alt="{{ bot.name }} Bot Logo" style="max-width: 100%; border-radius: 20px;">
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Bot Features</h2>
+            
+            <div class="features">
+                {% for feature in bot.features %}
+                <div class="feature-card">
+                    <h3>{{ feature.title }}</h3>
+                    <p>{{ feature.description }}</p>
+                    <img src="https://via.placeholder.com/250x150/007fff/ffffff?text={{ feature.title|urlencode }}" alt="{{ feature.title }}" class="feature-image">
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Support MotivX</h2>
+            
+            <div class="support">
+                <div class="support-content">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">Support</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">Motiv is a Bot for helping but it is taking a lot of my time and any support can help to make MotiX better</p>
+                    
+                    <div class="social-buttons">
+                        {% for name, text in bot.support_links.items() %}
+                        <a href="#" class="social-btn">{{ text }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="support-image">
+                    <img src="https://via.placeholder.com/400x400" alt="Support Image" style="max-width: 100%; border-radius: 20px;">
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

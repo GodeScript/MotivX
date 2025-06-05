@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ bot.name }} Kaufen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <style>
+        /* Konsistente Stile aus index.html */
+        :root {
+            --primary-color: #007fff;
+            --primary-dark: #319eff;
+            --text-light: #f8fafc;
+            --text-dark: #1a1a1a;
+            --bg-light: #f5f5f5;
+            --bg-dark: #121212;
+            --card-light: #ffffff;
+            --card-dark: #1e1e1e;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: var(--text-light);
+                background-color: var(--bg-dark);
+            }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .purchase-card {
+            background-color: var(--card-light);
+            border-radius: 30px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .purchase-card {
+                background-color: var(--card-dark);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            h1 {
+                color: var(--primary-dark);
+            }
+        }
+        
+        .price-tag {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            padding: 0 1rem; /* Added padding to contain inputs */
+        }
+        
+        input, select {
+            width: calc(100% - 2rem); /* Adjusted width to account for padding */
+            margin: 0 0rem; /* Added margin to align with container */
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 1rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            input, select {
+                background-color: #2a2a2a;
+                color: white;
+                border-color: #444;
+            }
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .btn {
+                background-color: var(--primary-dark);
+            }
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .back-link {
+                color: var(--primary-dark);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Purchase {{ bot.name }}</h1>
+        <p class="price-tag">Price: {{ bot.price }}</p>
+        
+        <div class="purchase-card">
+            <form action="/get_bot" method="POST">
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="discord">Discord Username:</label>
+                    <input type="text" id="discord" name="discord" required placeholder="YourDiscordName#1234" autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="server">Server ID (optional):</label>
+                    <input type="text" id="server" name="server" placeholder="Where should we add the bot?" autocomplete="off">
+                </div>
+                
+                <button type="submit" class="btn">Complete Purchase</button>
+            </form>
+        </div>
+        
+        <a href="/" class="back-link">← Back to Homepage</a>
+    </div>
+</body>
+</html>

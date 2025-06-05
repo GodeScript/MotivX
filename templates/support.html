@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | {{ bot.name }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007fff;
+            --primary-dark: #319eff;
+            --text-light: #f8fafc;
+            --text-dark: #1a1a1a;
+            --bg-light: #f5f5f5;
+            --bg-dark: #121212;
+            --card-light: #ffffff;
+            --card-dark: #1e1e1e;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: var(--text-light);
+                background-color: var(--bg-dark);
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            h1 {
+                color: var(--primary-dark);
+            }
+        }
+        
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .option-card {
+            background-color: var(--card-light);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .option-card {
+                background-color: var(--card-dark);
+            }
+            .option-card:hover {
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        .option-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .option-icon {
+                color: var(--primary-dark);
+            }
+        }
+        
+        .option-card h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #0066cc;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .btn {
+                background-color: var(--primary-dark);
+            }
+            .btn:hover {
+                background-color: #2680eb;
+            }
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .back-link {
+                color: var(--primary-dark);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ bot.name }} Support</h1>
+        
+        <div class="support-options">
+            <div class="option-card">
+                <div class="option-icon">❓</div>
+                <h2>FAQs</h2>
+                <p>Find answers to common questions in our help section.</p>
+                <a href="#" class="btn">View FAQs</a>
+            </div>
+            
+            <div class="option-card">
+                <div class="option-icon">💬</div>
+                <h2>Discord Server</h2>
+                <p>Join our Discord for direct help from our team and community.</p>
+                <a href="#" class="btn">Join Server</a>
+            </div>
+            
+            <div class="option-card">
+                <div class="option-icon">✉️</div>
+                <h2>Email Support</h2>
+                <p>Send us an email for personalized assistance with your issue.</p>
+                <a href="mailto:support@motivx-bot.com" class="btn">Send Email</a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <h2 style="margin-bottom: 1.5rem;">Or contact us via Social Media</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                {% for name, text in bot.support_links.items() %}
+                <a href="#" style="padding: 0.8rem 1.5rem; background-color: var(--card-light); color: var(--primary-color); border-radius: 17px; text-decoration: none; border: 1px solid currentColor; transition: all 0.3s;">
+                    {{ text }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <a href="/" class="back-link">← Back to Homepage</a>
+    </div>
+</body>
+</html>
