@@ -22,4 +22,4 @@ async def motivate(ctx, *, issue: str = None):
         await ctx.send(f"{ctx.author.mention} {quote}")
 
 
-bot.run("MTM3OTA2OTAyNjIxMDI4MzU0MQ.Gkihrz.RaSo7mTb1Bw2lns0muRPlyLnxr9yhEodg3JO_Q")  # Replace with your bot token
+bot.run("MTM3OTA2OTAyNjIxMDI4MzU0MQ.Gkihrz.RaSo7mTb1Bw2lns0muRPlyLnxr9yhEodg3JO_Q")
