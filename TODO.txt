@@ -1,5 +1,6 @@
 Bots:
   - Update more quotes
+  - Update Discord Segsesion
 
 Web:
   - Change colors to bot colors
