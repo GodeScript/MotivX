@@ -7,10 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #007fff;
-            --primary-dark: #319eff;
+            --primary-color: #FFA500;
+            --primary-dark: #FF8C00;
             --text-light: #f8fafc;
-            --text-dark: #1a1a1a;
+            --text-dark: #000000;
             --bg-light: #f5f5f5;
             --bg-dark: #121212;
             --card-light: #ffffff;
@@ -69,15 +69,26 @@
         
         .checkmark {
             font-size: 5rem;
-            color: #4CAF50;
+            color: var(--primary-color);
             margin-bottom: 1.5rem;
+        }
+        
+        p {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            p {
+                color: var(--text-light);
+            }
         }
         
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
             background-color: var(--primary-color);
-            color: white;
+            color: var(--text-dark);
             border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
@@ -86,6 +97,7 @@
         }
         
         .btn:hover {
+            background-color: var(--primary-dark);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
@@ -93,6 +105,7 @@
         @media (prefers-color-scheme: dark) {
             .btn {
                 background-color: var(--primary-dark);
+                color: var(--text-light);
             }
         }
         

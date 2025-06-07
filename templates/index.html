@@ -7,10 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #007fff;
-            --primary-dark: #319eff;
+            --primary-color: #FFA500;
+            --primary-dark: #FF8C00;
             --text-light: #f8fafc;
-            --text-dark: #1a1a1a;
+            --text-dark: #000000;
             --bg-light: #f5f5f5;
             --bg-dark: #121212;
             --card-light: #ffffff;
@@ -39,7 +39,7 @@
         
         .header {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--text-dark);
             padding: 2rem 0;
             text-align: center;
             border-radius: 0 0 30px 30px;
@@ -49,6 +49,7 @@
         @media (prefers-color-scheme: dark) {
             .header {
                 background-color: var(--primary-dark);
+                color: var(--text-light);
             }
         }
         
@@ -63,11 +64,6 @@
             padding: 0 1rem;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-            padding: 0 1rem; /* Added padding to contain inputs */
-        }
-        
         .hero {
             display: flex;
             align-items: center;
@@ -101,7 +97,7 @@
             display: inline-block;
             padding: 1rem 2rem;
             background-color: var(--primary-color);
-            color: white;
+            color: var(--text-dark);
             border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
@@ -114,6 +110,7 @@
         }
         
         .btn:hover {
+            background-color: var(--primary-dark);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
@@ -121,6 +118,7 @@
         @media (prefers-color-scheme: dark) {
             .btn {
                 background-color: var(--primary-dark);
+                color: var(--text-light);
             }
         }
         
@@ -128,6 +126,13 @@
             font-size: 5rem;
             text-align: center;
             margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .section-title {
+                color: var(--text-light);
+            }
         }
         
         .features {
@@ -146,13 +151,33 @@
             flex-direction: column;
         }
         
+        @media (prefers-color-scheme: dark) {
+            .feature-card {
+                background-color: var(--card-dark);
+            }
+        }
+        
         .feature-card h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .feature-card h3 {
+                color: var(--text-light);
+            }
         }
         
         .feature-card p {
             margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .feature-card p {
+                color: var(--text-light);
+            }
         }
         
         .feature-image {
@@ -166,9 +191,6 @@
         }
         
         @media (prefers-color-scheme: dark) {
-            .feature-card {
-                background-color: var(--card-dark);
-            }
             .feature-image {
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             }
@@ -251,6 +273,7 @@
             }
         }
     </style>
+
 </head>
 <body>
     <header class="header">

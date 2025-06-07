@@ -6,12 +6,11 @@
     <title>{{ bot.name }} Kaufen</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
     <style>
-        /* Konsistente Stile aus index.html */
         :root {
-            --primary-color: #007fff;
-            --primary-dark: #319eff;
+            --primary-color: #FFA500;
+            --primary-dark: #FF8C00;
             --text-light: #f8fafc;
-            --text-dark: #1a1a1a;
+            --text-dark: #000000;
             --bg-light: #f5f5f5;
             --bg-dark: #121212;
             --card-light: #ffffff;
@@ -72,25 +71,30 @@
             text-align: center;
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            color: var(--primary-color);
+            color: white;
             font-weight: bold;
+            background-color: #FF8C00;
+            padding: 0.5rem;
+            border-radius: 12px;
+            display: inline-block;
         }
         
         .form-group {
             margin-bottom: 1.5rem;
-            padding: 0 1rem; /* Added padding to contain inputs */
-        }
-        
-        input, select {
-            width: calc(100% - 2rem); /* Adjusted width to account for padding */
-            margin: 0 0rem; /* Added margin to align with container */
-            box-sizing: border-box; /* Include padding in width calculation */
+            padding: 0 1rem;
         }
         
         label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: bold;
+            color: var(--text-dark);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            label {
+                color: var(--text-light);
+            }
         }
         
         input, select {
@@ -100,6 +104,8 @@
             border: 1px solid #ccc;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             font-size: 1rem;
+            background-color: var(--card-light);
+            color: var(--text-dark);
         }
         
         @media (prefers-color-scheme: dark) {
@@ -115,7 +121,7 @@
             width: 100%;
             padding: 1rem;
             background-color: var(--primary-color);
-            color: white;
+            color: var(--text-dark);
             border: none;
             border-radius: 12px;
             font-size: 1.2rem;
@@ -126,6 +132,7 @@
         }
         
         .btn:hover {
+            background-color: var(--primary-dark);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
@@ -133,6 +140,7 @@
         @media (prefers-color-scheme: dark) {
             .btn {
                 background-color: var(--primary-dark);
+                color: var(--text-light);
             }
         }
         
@@ -169,7 +177,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="server">Server ID (optional):</label>
+                    <label for="server">Server ID:</label>
                     <input type="text" id="server" name="server" placeholder="Where should we add the bot?" autocomplete="off">
                 </div>
                 
