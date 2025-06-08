@@ -3,7 +3,7 @@ from discord.ext import commands
 import asyncio  # Für die Verzögerung beim Löschen
 
 from bot_token import token
-from Get_AiQuotes import generate_quote
+from Commands.MotivasionalQuotes.Get_AiQuotes import generate_quote
 
 intents = discord.Intents.default()
 intents.message_content = True

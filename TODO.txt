@@ -1,7 +1,11 @@
 Web:
-  - Change colors to bot colors
-  - Find out how to implement a PayPal system
   - Text that fits in
+  - Find out how to implement a PayPal system
 
 Marketing:
   - See how to market the Bot
+
+After SomeSales
+Bot:
+  - Streaks 
+  - Rank
