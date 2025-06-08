@@ -8,16 +8,16 @@ bot_info = {
     'description': 'Der ultimative Motivations-Bot für deinen Discord-Server!',
     'features': [
         {
-            'title': 'Tägliche Motivation',
-            'description': 'Automatische tägliche Motivationsnachrichten um dein Team zu inspirieren.'
+            'title': 'Dayly Motivation',
+            'description': 'With /mt Command you say what your issue is and the bot is genareating a quote to help you.'
         },
         {
-            'title': 'Ziel-Tracking',
-            'description': 'Setze Ziele und verfolge den Fortschritt mit deinem Team.'
+            'title': 'Future plan Goals Tracker',
+            'description': 'A goal Tracking System to help you reach your goals🔥.'
         },
         {
-            'title': 'Belohnungssystem',
-            'description': 'Verdiene Punkte und Belohnungen für erreichte Meilensteine.'
+            'title': 'Future plan Reward System',
+            'description': 'Get Poins for your Goals and See your self on the leaderboard.'
         }
     ],
     'price': '5.00€',
