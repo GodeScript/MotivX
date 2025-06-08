@@ -4,6 +4,7 @@ import asyncio  # Für die Verzögerung beim Löschen
 
 from bot_token import token
 from Commands.MotivasionalQuotes.Get_AiQuotes import generate_quote
+from database import add_channel, is_allowed
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -14,15 +15,16 @@ channel_id = 1379178030886420510  # Ersetze mit deiner Kanal-ID
 @bot.tree.command(name="mt", description="Get a motivational quote!")
 async def motivate(interaction: discord.Interaction, issue: str = None):
     # Prüfe, ob der Befehl im richtigen Kanal ausgeführt wird
-    if interaction.channel.id != channel_id:
+    if not is_allowed(interaction.channel.id):
+
         # Sende eine Warnung und lösche sie nach 10 Sekunden
         warning_msg = await interaction.response.send_message(
-            "❌ You can't use this command here! Please go to the **Motivation** channel.",
+            "❌ It seems you are not allowed to use this command in this channel. Or this Server is not a customer from MotivX if there is any Problem then Conntect the Support link in Bot Bio.",
             ephemeral=False  # Falls "True", sieht nur der Sender die Nachricht
         )
         
         # Lösche die Warnung nach 10 Sekunden
-        await asyncio.sleep(5)
+        await asyncio.sleep(10)
         await interaction.delete_original_response()
         return warning_msg
     

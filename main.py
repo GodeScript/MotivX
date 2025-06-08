@@ -5,7 +5,7 @@ app = Flask(__name__)
 # Bot-Informationen
 bot_info = {
     'name': 'MotivX',
-    'description': 'Der ultimative Motivations-Bot für deinen Discord-Server!',
+    'description': 'The ultimat Motivation-Bot for evry Discord Server!',
     'features': [
         {
             'title': 'Dayly Motivation',
@@ -47,7 +47,6 @@ def get_bot():
 @app.route('/success')
 def success():
     email = request.args.get('email', '')
-    print(f"Erfolgreicher Kauf für {email}")
     return render_template('success.html', email=email, bot=bot_info)
 
 @app.route('/support')
