@@ -68,7 +68,7 @@
         }
         
         .checkmark {
-            font-size: 5rem;
+            font-size: 10rem;
             color: var(--primary-color);
             margin-bottom: 1.5rem;
         }
@@ -128,9 +128,9 @@
         <div class="success-card">
             <div class="checkmark">✓</div>
             <h1>Thank You!</h1>
-            <p>Your purchase of {{ bot.name }} was successful!</p>
-            <p>We've sent a confirmation to <strong>{{ email }}</strong>.</p>
-            <p>Our team will contact you within 24 hours to set up the bot on your server.</p>
+            <p style="font-size: 30px;">Your purchase of {{ bot.name }} was successful!</p>
+            <p style="font-size: 25px;">We've sent infos on this mail: <strong>{{ email }}</strong>.</p>
+            <p style="font-size: 25px;">You can connect the bot with the link <a href="https://discord.com/oauth2/authorize?client_id=1379069026210283541" style="text-decoration: none; color: rgb(45, 141, 250);" >here</a></p>
             
             <a href="/support" class="btn">Contact Support</a>
         </div>

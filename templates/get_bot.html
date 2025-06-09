@@ -162,7 +162,7 @@
 <body>
     <div class="container">
         <h1>Purchase {{ bot.name }}</h1>
-        <p class="price-tag">Price: {{ bot.price }}</p>
+        <p class="price-tag">Price: {{ bot.price }}/Mo</p>
         
         <div class="purchase-card">
             <form action="/get_bot" method="POST">
@@ -172,9 +172,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="server">Channel ID:</label>
-                    <label style="color: rgb(255, 56, 56);">The Bot will only work on thy Channel. You cant change that later</label>
-                    <input type="text" id="server" name="server" required placeholder="Where should we add the bot?" autocomplete="off">
+                    <label for="channel_id">Channel ID:</label>
+                    <label style="color: rgb(255, 56, 56);">The Bot will only work on this Channel. You cant change that later</label>
+                    <input type="text" id="channel_id" name="channel_id" required placeholder="Where should we add the bot?" autocomplete="off">
                 </div>
                 
                 <button type="submit" class="btn">Complete Purchase</button>

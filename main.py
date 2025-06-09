@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from Bot.database import add_channel
 
 app = Flask(__name__)
 
@@ -39,14 +40,16 @@ def home():
 @app.route('/get_bot', methods=['GET', 'POST'])
 def get_bot():
     if request.method == 'POST':
-        # Hier würde die Logik für den Bot-Kauf stehen
         email = request.form.get('email')
-        return redirect(url_for('success', email=email))
+        channel_id = request.form.get('channel_id')  # fixed typo
+        return redirect(url_for('success', email=email, channel_id=channel_id))  # fixed typo
     return render_template('get_bot.html', bot=bot_info)
 
 @app.route('/success')
 def success():
     email = request.args.get('email', '')
+    channel_id = request.args.get('channel_id', '')
+    add_channel(str(email), int(channel_id))
     return render_template('success.html', email=email, bot=bot_info)
 
 @app.route('/support')

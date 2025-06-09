@@ -4,13 +4,11 @@ import asyncio  # Für die Verzögerung beim Löschen
 
 from bot_token import token
 from Commands.MotivasionalQuotes.Get_AiQuotes import generate_quote
-from database import add_channel, is_allowed
+from database import is_allowed
 
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='/', intents=intents)
-
-channel_id = 1379178030886420510  # Ersetze mit deiner Kanal-ID
 
 @bot.tree.command(name="mt", description="Get a motivational quote!")
 async def motivate(interaction: discord.Interaction, issue: str = None):
