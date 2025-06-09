@@ -1,5 +1,5 @@
 Web:
-  - Text that fits in
+  - Use Threads to run evrything at the same time
   - Find out how to implement a PayPal system
 
 Marketing:
