@@ -36,7 +36,11 @@ async def motivate(interaction: discord.Interaction, issue: str = None):
     # Generiere und sende das Zitat
     issue = issue.lower()
     quote = generate_quote(issue)
-    await interaction.response.send_message(f"{interaction.user.mention} {quote}")
+    
+    try:
+        await interaction.response.send_message(f"{interaction.user.mention} {quote}")
+    except Exception as e:
+        pass
 
 @bot.event
 async def on_ready():

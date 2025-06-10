@@ -9,7 +9,7 @@ model = SentenceTransformer('paraphrase-albert-small-v2')
 # 2. Hole Zitate von der API
 def fetch_quotes():
     try:
-        response = requests.get("https://zenquotes.io/api/quotes/100")  # 50 zufällige Zitate
+        response = requests.get("https://zenquotes.io/api/quotes/200")  # 200 zufällige Zitate
         return [quote['q'] for quote in response.json()]
     except:
         return ["There is a proplem right know we will try to be as fast as posiple back"]  # Fallback
