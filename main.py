@@ -45,8 +45,8 @@ def home():
 def get_bot():
     if request.method == 'POST':
         email = request.form.get('email')
-        channel_id = request.form.get('channel_id')  # fixed typo
-        return redirect(url_for('success', email=email, channel_id=channel_id))  # fixed typo
+        channel_id = request.form.get('channel_id')
+        return redirect(url_for('success', email=email, channel_id=channel_id))
     return render_template('get_bot.html', bot=bot_info)
 
 @app.route('/success')
