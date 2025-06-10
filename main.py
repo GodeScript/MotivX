@@ -29,6 +29,7 @@ bot_info = {
     'support_links': {
         'youtube': 'Youtube',
         'instagram': 'Instagram',
+        'tiktok': 'TikTok',
         'X': 'X',
         'Discord': 'Discord',
         'reddit': 'Reddit',
