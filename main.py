@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
+from threading import Thread
+
 from Bot.database import add_channel
+from Bot.Bot import run_bot
+from bot_token import token
 
 app = Flask(__name__)
 
@@ -55,6 +59,13 @@ def success():
 @app.route('/support')
 def support():
     return render_template('support.html', bot=bot_info)
-
-if __name__ == '__main__':
+    
+def start_programm():
+    # Start the Bot in a separate thread
+    bot_thread = Thread(target=run_bot, args=(token, ))
+    bot_thread.start()
+    
+    # Start the Web in a separate thread
     app.run(debug=True)
+    
+start_programm()

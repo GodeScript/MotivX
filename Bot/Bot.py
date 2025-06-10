@@ -2,9 +2,8 @@ import discord
 from discord.ext import commands
 import asyncio  # Für die Verzögerung beim Löschen
 
-from bot_token import token
-from Commands.MotivasionalQuotes.Get_AiQuotes import generate_quote
-from database import is_allowed
+from Bot.Commands.MotivasionalQuotes.Get_AiQuotes import generate_quote
+from Bot.database import is_allowed
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -44,4 +43,5 @@ async def on_ready():
     await bot.tree.sync()
     print(f"Bot is ready as {bot.user.name}")
 
-bot.run(token)
+def run_bot(token):
+    bot.run(token)
