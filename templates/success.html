@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kauf erfolgreich | {{ bot.name }}</title>
+    <title>Purchase Success | {{ bot.name }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,6 +15,8 @@
             --bg-dark: #121212;
             --card-light: #ffffff;
             --card-dark: #1e1e1e;
+            --success-color: #4CAF50;
+            --link-color: #2D8DFA;
         }
         
         body {
@@ -46,6 +48,7 @@
             padding: 3rem 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--success-color);
         }
         
         @media (prefers-color-scheme: dark) {
@@ -56,32 +59,49 @@
         }
         
         h1 {
-            color: var(--primary-color);
+            color: var(--success-color);
             font-size: 3rem;
             margin-bottom: 1.5rem;
         }
         
-        @media (prefers-color-scheme: dark) {
-            h1 {
-                color: var(--primary-dark);
-            }
-        }
-        
         .checkmark {
             font-size: 10rem;
-            color: var(--primary-color);
+            color: var(--success-color);
             margin-bottom: 1.5rem;
+            line-height: 1;
         }
         
-        p {
+        .info-text {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
             color: var(--text-dark);
-            margin-bottom: 1rem;
         }
         
-        @media (prefers-color-scheme: dark) {
-            p {
-                color: var(--text-light);
-            }
+        .email-display {
+            font-size: 1.3rem;
+            background: rgba(255, 140, 0, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+        
+        .discord-link {
+            display: inline-block;
+            margin: 1rem 0;
+            font-size: 1.3rem;
+        }
+        
+        a.discord-btn {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        
+        a.discord-btn:hover {
+            text-decoration: underline;
+            color: var(--primary-dark);
         }
         
         .btn {
@@ -92,7 +112,7 @@
             border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 1.5rem;
+            margin: 1.5rem 0.5rem 0;
             transition: all 0.3s;
         }
         
@@ -103,9 +123,15 @@
         }
         
         @media (prefers-color-scheme: dark) {
+            .info-text, .email-display {
+                color: var(--text-light);
+            }
             .btn {
                 background-color: var(--primary-dark);
                 color: var(--text-light);
+            }
+            .success-card {
+                border-left-color: var(--success-color);
             }
         }
         
@@ -114,6 +140,7 @@
             margin-top: 2rem;
             color: var(--primary-color);
             text-decoration: none;
+            font-size: 1.1rem;
         }
         
         @media (prefers-color-scheme: dark) {
@@ -127,15 +154,28 @@
     <div class="container">
         <div class="success-card">
             <div class="checkmark">✓</div>
-            <h1>Thank You!</h1>
-            <p style="font-size: 30px;">Your purchase of {{ bot.name }} was successful!</p>
-            <p style="font-size: 25px;">We've sent infos on this mail: <strong>{{ email }}</strong>.</p>
-            <p style="font-size: 25px;">You can connect the bot with the link <a href="https://discord.com/oauth2/authorize?client_id=1379069026210283541" style="text-decoration: none; color: rgb(45, 141, 250);" >here</a></p>
+            <h1>Thank you!</h1>
+            <p class="info-text">Your order for {{ bot.name }} was successful!</p>
             
-            <a href="/support" class="btn">Contact Support</a>
+            <div class="email-display">
+                Info sent to:<br>
+                <strong>{{ email }}</strong>
+            </div>
+            
+            <div class="discord-link">
+                <a href="https://discord.com/oauth2/authorize?client_id=1379069026210283541" 
+                   class="discord-btn">
+                   ➜ Add MotivX to your server
+                </a>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="/support" class="btn">Contact Support</a>
+                <a href="/" class="btn">Back to Home</a>
+            </div>
         </div>
         
-        <a href="/" class="back-link">← Back to Homepage</a>
+        <a href="/" class="back-link">← Back to Home</a>
     </div>
 </body>
 </html>

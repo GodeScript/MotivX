@@ -1,3 +1,5 @@
-bot_token.py
+tokens/bot_token.py
+tokens/app_secret_key.py
+tokens/paypal.py
 __pycache__
 /Bot/Commands/MotivasionalQuotes/__pycache__/

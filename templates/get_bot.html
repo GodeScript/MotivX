@@ -162,7 +162,6 @@
 <body>
     <div class="container">
         <h1>Purchase {{ bot.name }}</h1>
-        <p class="price-tag">Price: {{ bot.price }}/Mo</p>
         
         <div class="purchase-card">
             <form action="/get_bot" method="POST">
@@ -177,6 +176,35 @@
                     <input type="text" id="channel_id" name="channel_id" required placeholder="Where should we add the bot?" autocomplete="off">
                 </div>
                 
+                <div class="subscription-info">
+                    <h3>Subscription Details</h3>
+                    <ul>
+                        <li><strong>Initial Payment:</strong> €5.00 today</li>
+                        <li><strong>Recurring:</strong> €5.00 every 30 days</li>
+                        <li><strong>Cancel anytime</strong> through PayPal</li>
+                    </ul>
+                </div>
+
+                <style>
+                .subscription-info {
+                    background-color: rgba(255, 140, 0, 0.1);
+                    padding: 1rem;
+                    border-radius: 12px;
+                    margin: 1.5rem 0;
+                    border-left: 4px solid var(--primary-color);
+                }
+                .subscription-info h3 {
+                    margin-top: 0;
+                    color: var(--primary-color);
+                }
+                .subscription-info ul {
+                    padding-left: 1.5rem;
+                }
+                .subscription-info li {
+                    margin-bottom: 0.5rem;
+                }
+                </style>
+
                 <button type="submit" class="btn">Complete Purchase</button>
             </form>
         </div>
