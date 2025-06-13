@@ -1,6 +1,8 @@
 import sqlite3
 import os
 
+import datetime
+
 def get_db():
     """Erweitert die Datenbank für Abonnements"""
     base_dir = os.path.dirname(os.path.abspath(__file__))
